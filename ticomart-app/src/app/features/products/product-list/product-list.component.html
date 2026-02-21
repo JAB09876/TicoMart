@@ -1,0 +1,48 @@
+<div class="products-container">
+    <div class="filters-section">
+        <mat-form-field appearance="outline" class="search-field">
+            <mat-label>Search Products</mat-label>
+            <input matInput [(ngModel)]="searchQuery" (input)="search(searchQuery)" placeholder="Laptop, Phone...">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <div class="categories-list">
+            <mat-chip-listbox aria-label="Category selection">
+                <mat-chip-option *ngFor="let cat of categories" [selected]="selectedCategory === cat.slug"
+                    (click)="selectedCategory === cat.slug ? clearFilter() : filterByCategory(cat.slug)">
+                    {{cat.name}}
+                </mat-chip-option>
+            </mat-chip-listbox>
+        </div>
+    </div>
+
+    <div *ngIf="isLoading" class="loading-spinner">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <div *ngIf="!isLoading" class="products-grid">
+        <mat-card *ngFor="let product of products" class="product-card" [routerLink]="['/products', product.id]">
+            <img mat-card-image [src]="product.thumbnail" [alt]="product.title">
+            <mat-card-content>
+                <div class="product-info">
+                    <h3 class="product-title" [title]="product.title">{{product.title}}</h3>
+                    <p class="product-price">${{product.price}}</p>
+                    <div class="product-rating">
+                        <mat-icon class="star-icon">star</mat-icon>
+                        <span>{{product.rating}}</span>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" class="full-width" (click)="addToCart(product, $event)">
+                    Add to Cart
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+    <div *ngIf="!isLoading && products.length === 0" class="no-results">
+        <p>No products found.</p>
+        <button mat-button color="primary" (click)="clearFilter()" *ngIf="selectedCategory">Clear Filters</button>
+    </div>
+</div>

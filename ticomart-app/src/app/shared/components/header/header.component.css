@@ -1,0 +1,74 @@
+.header-toolbar {
+  padding: 0 16px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.app-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 16px;
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: border-color 0.3s ease;
+}
+
+.user-avatar:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.auth-buttons button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .user-name {
+    display: none;
+  }
+  
+  .app-title {
+    font-size: 16px;
+  }
+  
+  .header-toolbar {
+    padding: 0 8px;
+  }
+}

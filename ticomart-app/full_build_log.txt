@@ -1,0 +1,29 @@
+
+> ticomart-app@0.0.0 build
+> ng build
+
+[33m❯[39m Building...
+[32m✔[39m Building...
+[35mPrerendered 0 static routes.[39m
+Application bundle generation failed. [5.370 seconds] - 2025-12-21T00:05:10.259Z
+
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG6001: The class 'LoginComponent' is listed in the declarations of the NgModule 'AuthModule', but is not a directive, a component, or a pipe. Either remove it from the NgModule's declarations, or add an appropriate Angular decorator.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/auth/auth.module.ts:17:4:
+[37m      17 │     [32mLoginComponent[37m,
+         ╵     [32m~~~~~~~~~~~~~~[0m
+
+  'LoginComponent' is declared here.
+
+    src/app/features/auth/login/login.component.ts:12:13:
+[37m      12 │ export class [32mLoginComponent[37m {
+         ╵              [32m~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find template file './register.component.html'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/auth/login/login.component.ts:9:15:
+[37m      9 │   templateUrl: [32m'./register.component.html'[37m,
+        ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m

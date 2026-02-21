@@ -1,0 +1,83 @@
+<div class="checkout-container">
+    <h1>Checkout</h1>
+
+    <mat-card class="checkout-card">
+        <mat-stepper orientation="vertical" [linear]="true" #stepper>
+            <mat-step [stepControl]="shippingForm">
+                <form [formGroup]="shippingForm">
+                    <ng-template matStepLabel>Shipping Address</ng-template>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Full Name</mat-label>
+                        <input matInput formControlName="fullName" placeholder="John Doe" required>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Address</mat-label>
+                        <input matInput formControlName="address" placeholder="123 Main St" required>
+                    </mat-form-field>
+
+                    <div class="row">
+                        <mat-form-field appearance="outline" class="half-width">
+                            <mat-label>City</mat-label>
+                            <input matInput formControlName="city" placeholder="New York" required>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="half-width">
+                            <mat-label>ZIP Code</mat-label>
+                            <input matInput formControlName="zip" placeholder="10001" required>
+                        </mat-form-field>
+                    </div>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Country</mat-label>
+                        <input matInput formControlName="country" placeholder="USA" required>
+                    </mat-form-field>
+
+                    <div class="step-actions">
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-step>
+
+            <mat-step [stepControl]="paymentForm">
+                <form [formGroup]="paymentForm">
+                    <ng-template matStepLabel>Payment Details</ng-template>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Card Number</mat-label>
+                        <input matInput formControlName="cardNumber" placeholder="1234567812345678" maxlength="16"
+                            required>
+                        <mat-hint>16 digits</mat-hint>
+                    </mat-form-field>
+
+                    <div class="row">
+                        <mat-form-field appearance="outline" class="half-width">
+                            <mat-label>Expiry Date</mat-label>
+                            <input matInput formControlName="expiry" placeholder="MM/YY" maxlength="5" required>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="half-width">
+                            <mat-label>CVV</mat-label>
+                            <input matInput formControlName="cvv" placeholder="123" maxlength="3" required>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="step-actions">
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-step>
+
+            <mat-step>
+                <ng-template matStepLabel>Review & Order</ng-template>
+                <p>You are about to place your order.</p>
+                <div class="step-actions">
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-raised-button color="primary" (click)="placeOrder()">Place Order</button>
+                </div>
+            </mat-step>
+        </mat-stepper>
+    </mat-card>
+</div>

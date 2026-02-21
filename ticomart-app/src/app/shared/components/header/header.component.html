@@ -1,0 +1,36 @@
+<mat-toolbar color="primary" class="header-toolbar">
+  <button mat-icon-button (click)="onHome()">
+    <mat-icon>home</mat-icon>
+  </button>
+  
+  <span class="spacer"></span>
+  
+  <span class="app-title">TicoMart</span>
+  
+  <span class="spacer"></span>
+
+  <div class="user-section">
+    <!-- User is logged in -->
+    <div *ngIf="isLoggedIn" class="user-menu">
+      <img [src]="currentUser?.image || 'https://robohash.org/default?set=set4'" 
+           alt="User Avatar" 
+           class="user-avatar"
+           (click)="onProfile()"
+           matTooltip="Go to Profile">
+      
+      <span class="user-name">{{ currentUser?.firstName }} {{ currentUser?.lastName }}</span>
+      
+      <button mat-icon-button (click)="onLogout()" matTooltip="Logout">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+
+    <!-- User is not logged in -->
+    <div *ngIf="!isLoggedIn" class="auth-buttons">
+      <button mat-button color="accent" (click)="onLogin()">
+        <mat-icon>login</mat-icon>
+        Login
+      </button>
+    </div>
+  </div>
+</mat-toolbar>

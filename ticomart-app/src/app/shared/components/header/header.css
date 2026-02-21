@@ -1,0 +1,29 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.logo {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 8px;
+}
+
+.menu-icon {
+  margin-right: 8px;
+}
+
+.nav-links {
+  margin-right: 16px;
+}
+
+.username {
+  margin-left: 8px;
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .username {
+    display: inline;
+  }
+}
